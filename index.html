@@ -39,8 +39,7 @@
       </div>
       <p>
         <b>Abstract.</b>  
-        We introduce SPEAR-TTS, a multi-speaker text-to-speech (TTS) system that can be trained with minimal supervision. By combining two types of discrete speech representations, we cast TTS as a composition of two sequence-to-sequence tasks: from text to high-level semantic tokens (akin to "reading") and from semantic tokens to low-level acoustic tokens ("speaking"). Decoupling these two tasks enables training of the "speaking" module using abundant audio-only data, and unlocks the highly efficient combination of pretraining and backtranslation to reduce the need for parallel data when training the "reading" component. To control the speaker identity, we adopt example prompting, which allows SPEAR-TTS to generalize to unseen speakers using only a short sample of 3 seconds, without any explicit speaker representation or speaker-id labels. Our experiments demonstrate that SPEAR-TTS achieves a character error rate that is competitive with state-of-the-art methods using only 15 minutes of parallel data, while matching ground-truth speech in terms of naturalness and acoustic quality, as measured in subjective tests.
-
+TODO ABSTRACT
 
       </p>
     </div>
@@ -76,7 +75,7 @@ TODO ARCHITECTURE DESCRIPTION
     <div class="container shadow p-5 mb-5 bg-white rounded">
       <h3>Voice Conversion<a id="prompting"/></h3>
       <p class="mb-0">
-      In the following set of samples we show that, when prompted with a 3-second sample, SPEAR-TTS generates an utterance that is faithful to the prompted voice. Here, voices are selected from LibriSpeech test-clean (Panayotov et al., 2015), so the model has never seen them during training, thus demonstrating zero-shot generalization. We use the SPEAR-TTS model trained on a 15 minute subset of LJSpeech (single-speaker) as parallel data.
+TODO VOICE CONVERSION DESCRIPTION
       </p>
       <div class="container pt-3 table-responsive">
         <table
@@ -115,19 +114,6 @@ TODO ARCHITECTURE DESCRIPTION
         </table>
       </div>
     </div>
-
-
-    <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Broader impact<a id="impact"/></h3>
-      <p class="mb-0">
-      We believe our work on high-quality TTS that requires very limited supervision (quantity- and quality-wise) can be an important stepping stone for enabling this core speech technology for communities that are currently underserved by TTS solutions due to speaking "low-resource" languages, i.e., languages do not have vast parallel corpora required for training deep learning models. Even for high-resource languages, such as English, the ability to harness unpaired data for speech generation can enable producing speech in accents and dialects that are currently uncovered by the existing TTS systems.
-      </p>
-      <br />
-      <p>
-      At the same time, we acknowledge that the ability to mimic a voice can have numerous malicious applications, including bypassing biometric identification for the purpose of impersonation. Thus it is crucial to put safeguards against the misuse of SPEAR-TTS and, as an initial step, we verify that speech produced by SPEAR-TTS can be reliably detected by a classifier (see Appendix E). In the future, one can explore other approaches for detecting synthesized speech, for example by audio watermarking.
-     </p>
-    </div>
-
 
 
   </body>
