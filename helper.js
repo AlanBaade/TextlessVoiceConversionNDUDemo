@@ -99,7 +99,7 @@ function generatePrompting(tableId) {
 }
 
 
-generateSupervisionEfficiency('supervision-efficiency-table');
-generateFidelityVersusAmountPairedData('fidelity-vs-amount-paired-data');
-generateSpeechDiversity('speech-diversity');
+// generateSupervisionEfficiency('supervision-efficiency-table');
+// generateFidelityVersusAmountPairedData('fidelity-vs-amount-paired-data');
+// generateSpeechDiversity('speech-diversity');
 generatePrompting('prompting-table');
