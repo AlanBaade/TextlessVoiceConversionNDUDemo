@@ -24,17 +24,16 @@
   <body>
     <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
       <div class="text-center">
-        <h1>Speak, Read and Prompt:</h1><h3>High-Fidelity Text-to-Speech with Minimal Supervision</h3>
+        <h2>TODO TITLE</h2>
         <p class="lead fw-bold">
           |<a
-            href="https://arxiv.org/abs/2302.03540"
+            href="TODO PAPER LINK"
             class="btn border-white bg-white fw-bold"
             >paper</a
           >|
         </p>
         <p class="fst-italic mb-0">
-          Eugene Kharitonov, Damien Vincent,  Zalán Borsos, Raphaël Marinier, Sertan Girgin, Olivier Pietquin,
-          Matt Sharifi, Marco Tagliasacchi, Neil Zeghidour
+          TODO AUTHOR NAMES 
         </p>
         <p><b>Google Research</b></p>
       </div>
@@ -47,18 +46,18 @@
     </div>
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-    <h2 id="model-overview" style="text-align: center;">SPEAR-TTS Overview</h2>
+    <h2 id="model-overview" style="text-align: center;">Model Overview</h2>
     <body>
     <p style="text-align: center;">
-        <img src="spear_arch.png" height="200" width="800" class="img-fluid">
+        <img src="arch.png" height="200" width="800" class="img-fluid">
     </p>
     </body>
         <p>
-SPEAR-TTS operates in two stages, each solving a sequence-to-sequence task. The first stage ("reading") maps the input text transcript to a sequence of semantic tokens. The second stage ("speaking") converts semantic tokens to acoustic tokens. Acoustic tokens are decoded to audio waveforms using a SoundStream decoder (Zeghidour et al., 2021). With this setup, only the first stage requires parallel text-audio data during training, while the second stage can be trained using abundant audio-only data. By combining audio-only pretraining and backtranslation when training the first stage, we reduce the amount of parallel data required to train a high-fidelity TTS system to as little as 15 minutes.
+TODO ARCHITECTURE DESCRIPTION
         </p>
 </div>
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+<!-- <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
     <h2 id="model-overview" style="text-align: left;">Table of Contents</h2>
     <body>
     <p style="text-align: left;">
@@ -70,130 +69,12 @@ SPEAR-TTS operates in two stages, each solving a sequence-to-sequence task. The 
     </ul>
     </p>
     </body>
-</div>
+</div> -->
 
 
-    <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Supervision Efficiency<a id="efficiency"/></h3>
-      <p class="mb-0">
-In the first set of samples, we demonstrate that SPEAR-TTS synthesizes speech that adheres to the input text even when trained on very limited parallel data.
-      </p>
-
-      <p style="margin-top: 2em">
-In the following table, we provide speech samples produced by SPEAR-TTS trained on a 15 min subsample of LJSpeech (Ito and Johnson, 2017). As inputs, we consider transcripts from LibriTTS test-clean examples (Zen et al., 2019). The models did not see any of these examples during training. In this experiment, we do not prompt our model to follow any specific voice. Note that SPEAR-TTS generates speech in multiple voices, even though it is trained on the single-speaker parallel data. As a reference baseline, we also provide speech samples produced by a modification of FastSpeech2 (Ren et al, 2020), adapted for the low-resource scenario (Pine, 2022). We refer to it as FastSpeech2-LR. These models are trained on subsets of LJSpeech.
-              </p>
-      <div class="container pt-3 table-responsive">
-        <table
-          class="table table-hover"
-          id="supervision-efficiency-table"
-        >
-          <thead>
-            <tr>
-              <th style="text-align: center">Text</th>
-              <th style="text-align: center">Ground-truth</th>
-              <th style="text-align: center">FastSpeech2-LR (24 h)</th>
-              <th style="text-align: center">FastSpeech2-LR (15 min)</th>
-              <th style="text-align: center">SPEAR-TTS (15 min)</th>
-            </tr>
-          </thead>
-          <tbody>
-             <!-- <tr>
-               <td colspan="4" style="text-align: center">LJSpeech (test set)</td>
-             </tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> </tr>
-            -->
-             <!-- <tr>
-               <td colspan="4" style="text-align: center">LibriSpeech (test-clean)</td>
-             </tr> -->
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-             <tr height=200px> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p style="margin-top: 2em">
-      In the next experiment, we show how fidelity to the text changes for various training scenarios, as we vary the amount of available parallel data. '-' indicates that the speech synthesized by the corresponding model is not intelligible.
-
-      </p>
-      <div class="container pt-3 table-responsive">
-        <table
-          class="table table-hover"
-          id="fidelity-vs-amount-paired-data"
-        >
-          <thead>
-            <tr>
-              <th width="25%">Amount of paired data</th>
-              <th width="25%">From scratch</th>
-              <th width="25%">+ Pretraining</th>
-              <th width="25%">+ Backtranslation</th>
-            </tr>
-          </thead>
-          <tbody>
-             <tr>
-               <td colspan="4" style="text-align: center">Text: <font size="-1"> Whoever, therefore, is ambitious of distinction in this way ought to be prepared for disappointment. </font></td>
-             </tr>
-             <tr> <td>24h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>12h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>3h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>2h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>1h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>30min</td> <td>-</td> <td></td> <td></td> </tr>
-             <tr> <td>15min</td> <td>-</td> <td>-</td> <td></td> </tr>
-             <tr>
-              <td colspan="4" style="text-align: center">Text: <font size="-1"> Suddenly, for the purpose of restoring peace and order, Spring, accompanied by his whole court, made his appearance. </font></td>
-             </tr>
-             <tr> <td>24h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>12h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>3h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>2h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>1h</td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>30min</td> <td>-</td> <td></td> <td></td> </tr>
-             <tr> <td>15min</td> <td>-</td> <td>-</td> <td></td> </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </div>
 
     <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Speech diversity<a id="diversity"/></h3>
-      <p class="mb-0">
-      In this experiment we show that, for a fixed text input, SPEAR-TTS is able to generate diverse speech that varies in terms of prosody and voice characteristics. We use the SPEAR-TTS model trained on a 15 minute subset of LJSpeech (single-speaker) as parallel data. We use transcripts from LibriTTS test-clean (Zen et al., 2019).
-      </p>
-      <div class="container pt-3 table-responsive">
-        <table
-          class="table table-hover"
-          id="speech-diversity"
-        >
-          <thead>
-            <tr>
-              <th width="20%">Text</th>
-              <th width="20%">Sample #1</th>
-              <th width="20%">Sample #2</th>
-              <th width="20%">Sample #3</th>
-              <th width="20%">Sample #4</th>
-            </tr>
-          </thead>
-          <tbody>
-             <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Voice Prompting<a id="prompting"/></h3>
+      <h3>Voice Conversion<a id="prompting"/></h3>
       <p class="mb-0">
       In the following set of samples we show that, when prompted with a 3-second sample, SPEAR-TTS generates an utterance that is faithful to the prompted voice. Here, voices are selected from LibriSpeech test-clean (Panayotov et al., 2015), so the model has never seen them during training, thus demonstrating zero-shot generalization. We use the SPEAR-TTS model trained on a 15 minute subset of LJSpeech (single-speaker) as parallel data.
       </p>
