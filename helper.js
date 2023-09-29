@@ -36,7 +36,7 @@ function generateVC(tableId, examples, base) {
   ];
   
   for (var i = 0; i < examples.length; i++) {
-    generateExampleRow(table.rows[i], base, models, examples[i], 0)
+    generateExampleRow(table.rows[i+1], base, models, examples[i], 0)
   }
 }
 
