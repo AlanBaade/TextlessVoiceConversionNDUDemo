@@ -32,7 +32,7 @@ function generateVC(tableId, examples, base) {
           'ours_phone/',
           'triaanvc/',
           'freevc/',
-          'diffvc',
+          'diffvc/',
   ];
   
   for (var i = 0; i < examples.length; i++) {
