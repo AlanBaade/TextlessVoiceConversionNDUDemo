@@ -20,7 +20,7 @@ function generateExampleRow(table_row, base_path, filename_ext, col_offset) {
   }
 }
 
-function generateVC(tableId, examples) {
+function generateVC(tableId, examples, base) {
   let table = document.getElementById(tableId);
   console.log("got table ", table);
 
@@ -36,7 +36,7 @@ function generateVC(tableId, examples) {
   ];
   
   for (var i = 0; i < examples[0].length; i++) {
-    generateExampleRow(table.rows[i], 'data/prompting/' + models[i], examples, 0)
+    generateExampleRow(table.rows[i], base + models[i], examples, 0)
   }
 }
 
@@ -67,5 +67,5 @@ let vctk_examples = [
   'p271_039_mic2.flac',
 ];
 
-generateVC('librispeech-test-table', librispeech_examples);
-generateVC('vctk-test-table', vctk_examples);
+generateVC('librispeech-test-table', librispeech_examples, 'data/demo_librispeech/');
+generateVC('vctk-test-table', vctk_examples, 'data/demo_vctk/');
