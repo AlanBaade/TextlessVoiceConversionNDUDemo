@@ -72,48 +72,82 @@ TODO ARCHITECTURE DESCRIPTION
 
 
 
-    <div class="container shadow p-5 mb-5 bg-white rounded">
-      <h3>Voice Conversion<a id="prompting"/></h3>
-      <p class="mb-0">
-TODO VOICE CONVERSION DESCRIPTION
-      </p>
-      <div class="container pt-3 table-responsive">
-        <table
-          class="table table-hover"
-          id="prompting-table"
-        >
-          <thead>
-            <tr>
-              <th width="20%">Prompt</th>
-              <th width="20%">Sample #1</th>
-              <th width="20%">Sample #2</th>
-              <th width="20%">Sample #3</th>
-              <th width="20%">Sample #4</th>
-            </tr>
-          </thead>
-          <tbody>
-             <tr>
-               <td colspan="5" style="text-align: center">Text: <font size="-1">
-                   "And yesterday things went on just as usual"
-               </font></td>
-             </tr>
-             <tr> <td>Speaker #1 Prompt #1</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #1 Prompt #2</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #2 Prompt #1</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #2 Prompt #2</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr>
-               <td colspan="5" style="text-align: center">Text: <font size="-1">
-                   "I see a crowd in one corner of the garden everybody standing still and looking up"
-               </font></td>
-             </tr>
-             <tr> <td>Speaker #1 Prompt #1</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #1 Prompt #2</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #2 Prompt #1</td> <td></td> <td></td> <td></td> <td></td> </tr>
-             <tr> <td>Speaker #2 Prompt #2</td> <td></td> <td></td> <td></td> <td></td> </tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="container shadow p-5 mb-5 bg-white rounded">
+    <h3>Voice Conversion on Unseen Speakers from LibriSpeech Test-Clean<a id="prompting"/></h3>
+    <p class="mb-0">
+    Cherrypicked examples for Voice Conversion. All speakers are unseen to all models during training.
+    </p>
+    <div class="container pt-3 table-responsive">
+      <table
+        class="table table-hover"
+        id="librispeech-test-table"
+      >
+        <thead>
+          <tr>
+            <th width="12.5%">Source</th>
+            <th width="12.5%">Target</th>
+            <th width="12.5%">Ours-Norm</th>
+            <th width="12.5%">Ours-Aligned</th>
+            <th width="12.5%">Ours-Phone</th>
+            <th width="12.5%">TriAAN-VC</th>
+            <th width="12.5%">FreeVC</th>
+            <th width="12.5%">DiffVC</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr> <td>SID 4446 to 2300</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 61 to 2830</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 121 to 4992</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 1320 to 61</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 1995 to 5639</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 4507 to 2300</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 6930 to 2961</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID 7176 to 8555</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+    <h3>Voice Conversion on Speakers from VCTK. <a id="prompting"/></h3>
+    <p class="mb-0">
+    Cherrypicked examples for Voice Conversion on VCTK. Speakers are unseen during training for our models and TriAAN-VC. Speakers are possibly seen by FreeVC and DiffVC during training.
+
+    To demonstrate the affect of accent, these examples largely convert between speakers labeled as American or Canadian and speakers who aren't. 
+      
+    Notice that Ours-Norm converts between accents, while the source speaker's accent is almost entirely preserved for Ours-Aligned, TriAAN-VC, FreeVC, and DiffVC.
+    </p>
+    <div class="container pt-3 table-responsive">
+      <table
+        class="table table-hover"
+        id="vctk-test-table"
+      >
+        <thead>
+          <tr>
+            <th width="12.5%">Source</th>
+            <th width="12.5%">Target</th>
+            <th width="12.5%">Ours-Norm</th>
+            <th width="12.5%">Ours-Aligned</th>
+            <th width="12.5%">Ours-Phone</th>
+            <th width="12.5%">TriAAN-VC</th>
+            <th width="12.5%">FreeVC*</th>
+            <th width="12.5%">DiffVC*</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr> <td>SID p277 to p299</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p294 to p231</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p227 to p308</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p245 to p299</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p316 to p249</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p343 to p285</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p330 to p336</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+           <tr> <td>SID p271 to p285</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>  </tr>
+        </tbody>
+      </table>
+    </div>
+      
+  </div>
 
 
   </body>
