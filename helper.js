@@ -5,9 +5,9 @@ function createAudioHTML(path) {
 }
 
 
-function generateExampleRow(table_row, base_path, filename_ext, col_offset) {
-  for (var i = 0; i < filename_ext.length; i++) {
-    let p = base_path + filename_ext[i];
+function generateExampleRow(table_row, root_path, file_pre, file_ext, col_offset) {
+  for (var i = 0; i < file_pre.length; i++) {
+    let p = root_path + file_pre[i] + file_ext;
     let cell = table_row.cells[col_offset + i];
     if (p.endsWith('txt')) {
       var req = new XMLHttpRequest();
@@ -35,15 +35,10 @@ function generateVC(tableId, examples, base) {
           'diffvc',
   ];
   
-  for (var i = 0; i < examples[0].length; i++) {
-    generateExampleRow(table.rows[i], base + models[i], examples, 0)
+  for (var i = 0; i < examples.length; i++) {
+    generateExampleRow(table.rows[i], base, models, examples[i], 0)
   }
 }
-
-
-// generateSupervisionEfficiency('supervision-efficiency-table');
-// generateFidelityVersusAmountPairedData('fidelity-vs-amount-paired-data');
-// generateSpeechDiversity('speech-diversity');
 
 let librispeech_examples = [
   '4446/2273/4446-2273-0023.flac',
