@@ -82,24 +82,15 @@ function generatePrompting(tableId) {
           '201a21a19122da31975501c183a447db_2094_0',
           '201a21a19122da31975501c183a447db_2094_2',
       ],
-      [
-          '1ebe5c38eabb74ee9fc562f3f716dc8c_1089_0',
-          '1ebe5c38eabb74ee9fc562f3f716dc8c_1089_2',
-          '1ebe5c38eabb74ee9fc562f3f716dc8c_2094_0',
-          '1ebe5c38eabb74ee9fc562f3f716dc8c_2094_2',
-      ]
   ];
   for (var i = 0; i < examples[0].length; i++) {
     generateExampleRow(table.rows[2 + i], 'data/prompting/' + examples[0][i], ext, 0)
   }
-  for (var i = 0; i < examples[1].length; i++) {
-    generateExampleRow(table.rows[7 + i], 'data/prompting/' + examples[1][i], ext, 0)
-  }
-
 }
 
 
 // generateSupervisionEfficiency('supervision-efficiency-table');
 // generateFidelityVersusAmountPairedData('fidelity-vs-amount-paired-data');
 // generateSpeechDiversity('speech-diversity');
-generatePrompting('prompting-table');
+generatePrompting('librispeech-test-table');
+generatePrompting('vctk-test-table');
